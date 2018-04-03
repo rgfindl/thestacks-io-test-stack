@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: TheStacks Test Stack
+
+Parameters:
+  AppName:
+    Type: String
+    Description: Application name
+  Environment:
+    Type: String
+    Description: Environment
+
+Resources:
+
+  #
+  # S3 Bucket
+  #
+  Bucket:
+    Description: Test Bucket
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub 'test-thestacks-${AppName}-${Environment}'
+
+Outputs:
+  Bucket:
+    Value: !Ref 'Bucket'
+    Export:
+      Name: !Sub '${AWS::StackName}-Bucket'
