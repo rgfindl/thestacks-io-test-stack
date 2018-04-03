@@ -1,1 +1,0 @@
-# thestacks-io-test-stack
